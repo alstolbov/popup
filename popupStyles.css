@@ -1,0 +1,82 @@
+.popupOverlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(243, 243, 243, 0.78);
+    text-align: center;   
+    }
+    .popupOverlay:after {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        content: ''
+        }
+    /* Added for IE<9 compatibility */
+    .popup__overlay_ie {
+        background: #000;
+        opacity: .7;
+        filter: alpha(opacity=70)
+        }
+.popup {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    position: relative;
+    max-width: 80%;
+    border: 5px solid #74BEEB;
+    border-radius: 15px;
+    background: #74BEEB;
+    vertical-align: middle;
+    box-shadow: 1px 2px 5px #7DADCA;
+    }
+.popupClose {
+    display: block;
+    position: absolute;
+    top: -17px;
+    right: -5px;
+    border: 5px solid #74BEEB;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #BADFF6;
+    text-align: center;
+    font-size: 12px;
+    line-height: 12px;
+    color: #444;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .popupClose:hover .closeImg{
+        background-color: #fff;
+        opacity: 1;
+    }
+.closeImg {
+    width: 12px;
+    height: 12px;
+    padding: 8px;
+    background: #fff url('glyphicons_192_circle_remove.png') 3px no-repeat;
+    opacity: 0.5;
+    border-radius: 50%;
+    background-size: 22px;
+}
+.popupHeader {
+    background: #74BEEB;
+    font-weight: bold;
+    text-align: left;
+    word-break: break-word;
+    padding: 5px 35px 10px 5px;
+    border-radius: 5px 0 0;
+    cursor: move;
+}
+.popupContent {
+    max-height: 90%;
+    overflow: auto;
+    padding: 15px;
+    border-radius: 11px;
+    background: #fff;
+}

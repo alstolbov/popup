@@ -1,0 +1,102 @@
+<html>
+<head>
+  <meta charset="utf-8">
+    <script src="popup-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="popupStyles.css" />
+    <style>
+      #test {
+        position: absolute;
+        cursor: pointer;
+      }
+      #test:hover #l, #test:hover #r {
+        background-color: #74BEEB;
+      }
+      #test:hover #r {
+        width: 160px;
+        height: 20px;
+        padding: 5px;
+        border: 1px solid #74BEEB;
+        border-left: 0;
+        border-radius: 0 15px 15px 0;
+      }
+      #l {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin-top: -5px;
+        margin-right: -8px;
+        padding: 5px;
+        background-color: #BADFF6;
+        border-radius: 20px;
+        border: 1px solid #74BEEB;
+        text-align: center;
+        line-height: 30px;
+      }
+      #r {
+        float: left;
+        width: 0px;
+        height: 30px;
+        background-color: #BADFF6;
+        border: 0px solid;
+        line-height: 18px;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      #l, #r, #t, #y, #n{
+        float: left;
+      }
+      #t, #y, #n{
+        padding: 2px;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+      #y, #n{
+        opacity: 0.6;
+      }
+      #y{
+        background-color: red;
+      }
+      #n{
+        background-color: yellow;
+      }
+      #y:hover, #n:hover{
+        opacity: 1;
+      }
+      #t{
+        font-weight: bold;
+      }
+
+    </style>
+</head>
+<body>
+  <div id="test"><div id="l">X</div><div id="r"><div id="t">Удалить?</div><div id="y">Да</div><div id="n">Нет</div></div></div>
+  <br><br><br>
+<p><input type="button" value="Popup!" id="popup__toggle"/></p>
+<div style="width: 100px; height: 1000px; background: #333"></div>
+<p>sdsdsdsdd</p>
+<script>
+        var targ = document.getElementById('popup__toggle');
+          var popup = new Popup({title: 'sdsdd', width: '300'});
+          targ.onclick = function(){
+          //var popup = new Popup({"top": 100, "left": 100});
+          var id = popup.getID();
+          var content = '<form><input type="text" value="222" name="text"/><br><input type="checkbox" id="roleName_1" name="roleName_1" value="1"><input type="submit" value="Ok" name="submit" /></form><p><input type="button" value="destroy!" id="popup__destr_' + id + '"/></p>';
+          popup.set({content: content, title:id});
+            popup.show();
+            //popup.destroyOnClose();
+
+            var targ2 = document.getElementById('popup__destr_' + id);
+            targ2.onclick = function(){
+                console.log(popup.getID());
+                popup.set(
+                        {   'title': id,
+                            'content': 'Success!',
+                            'width': 200
+                        }
+                );
+            }
+            return false;
+       }
+</script>
+</body>
+</html>
